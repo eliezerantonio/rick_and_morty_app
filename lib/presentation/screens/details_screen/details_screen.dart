@@ -13,7 +13,9 @@ class DetailsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final characterProviderAsync = ref.watch(characterProvider(id));
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text("Details"),
+        ),
         body: switch (characterProviderAsync) {
           AsyncData(:final value) => Column(
               children: [
@@ -25,6 +27,7 @@ class DetailsScreen extends ConsumerWidget {
                     width: double.infinity,
                   ),
                 ),
+                const SizedBox(height: 5),
                 Text(
                   value.name,
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),

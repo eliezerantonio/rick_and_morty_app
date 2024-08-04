@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rick_and_morty_app/presentation/screens/home_screen/home_screen.dart';
 
+import '../../../../domain/entities/entities.dart';
 import '../../../providers/characters_provider.dart';
 import '../../details_screen/details_screen.dart';
+
+class CharacterList extends ConsumerStatefulWidget {
+  final List<CharacterEntity> characters;
+  const CharacterList(this.characters, {super.key});
+
+  @override
+  CharacterListState createState() => CharacterListState();
+}
 
 class CharacterListState extends ConsumerState<CharacterList> {
   final scrollController = ScrollController();
@@ -49,7 +57,10 @@ class CharacterListState extends ConsumerState<CharacterList> {
                     fit: BoxFit.cover,
                   ),
                   const Spacer(),
-                  Text(character.name),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(character.name),
+                  ),
                 ],
               ),
             ),

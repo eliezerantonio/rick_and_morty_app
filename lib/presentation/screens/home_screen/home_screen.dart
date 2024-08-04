@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../domain/entities/entities.dart';
 import '../../providers/providers.dart';
 import 'components/character_list.dart';
 
@@ -46,12 +45,4 @@ class HomeScreenState extends ConsumerState<HomeScreen> {
       ),
     );
   }
-}
-
-class CharacterList extends ConsumerStatefulWidget {
-  final List<CharacterEntity> characters;
-  const CharacterList(this.characters, {super.key});
-
-  @override
-  CharacterListState createState() => CharacterListState();
 }
