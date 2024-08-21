@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rick_and_morty_app/presentation/screens/splash_screen/splash_screen.dart';
 
 import 'presentation/providers/theme_provider.dart';
-import 'presentation/screens/home_screen/home_screen.dart';
 
 void main() => runApp(const ProviderScope(child: MyApp()));
 
@@ -15,7 +15,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       title: 'Material App',
       theme: ThemeData(brightness: isDark ? Brightness.dark : Brightness.light),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
