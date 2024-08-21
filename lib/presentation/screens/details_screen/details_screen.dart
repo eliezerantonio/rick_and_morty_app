@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../providers/providers.dart';
+import '../components/components.dart';
 
 class DetailsScreen extends ConsumerWidget {
   final int id;
@@ -13,9 +14,7 @@ class DetailsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final characterProviderAsync = ref.watch(characterProvider(id));
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Details"),
-        ),
+        appBar: const CustomAppBar(),
         body: switch (characterProviderAsync) {
           AsyncData(:final value) => Column(
               children: [

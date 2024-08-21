@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../providers/providers.dart';
+import '../components/components.dart';
 import 'components/character_list.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -27,6 +28,7 @@ class HomeScreenState extends ConsumerState<HomeScreen> {
 
     final isDark = ref.watch(themeProvider);
     return Scaffold(
+      appBar: const CustomAppBar(),
       body: charactersProviderAsync.when(
         data: (data) => Stack(
           children: [
