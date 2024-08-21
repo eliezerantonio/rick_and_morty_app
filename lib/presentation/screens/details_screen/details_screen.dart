@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../providers/providers.dart';
 import '../components/components.dart';
+import 'components/components.dart';
 
 class DetailsScreen extends ConsumerWidget {
   final int id;
@@ -48,27 +49,5 @@ class DetailsScreen extends ConsumerWidget {
           AsyncError(:final error) => Text('error: $error'),
           _ => const Center(child: CircularProgressIndicator()),
         });
-  }
-}
-
-class CustomListTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-
-  const CustomListTile({
-    super.key,
-    required this.title,
-    required this.subtitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        title,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-      ),
-      subtitle: Text(subtitle),
-    );
   }
 }

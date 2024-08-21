@@ -29,7 +29,7 @@ class HomeScreenState extends ConsumerState<HomeScreen> {
     final isDark = ref.watch(themeProvider);
     return Scaffold(
       appBar: const CustomAppBar(),
-      body: charactersProviderAsync.when(
+      body: charactersProviderAsync.whenOrNull(
         data: (data) => Stack(
           children: [
             CharacterList(data.characters),
@@ -37,12 +37,9 @@ class HomeScreenState extends ConsumerState<HomeScreen> {
           ],
         ),
         error: (error, _) => Text("$error"),
-        loading: () => const CircularProgressIndicator(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(themeProvider.notifier).toggle();
-        },
+        onPressed: ref.read(themeProvider.notifier).toggle,
         child: Icon(isDark ? Icons.brightness_4 : Icons.brightness_2),
       ),
     );
