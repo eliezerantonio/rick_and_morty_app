@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/presentation/screens/home_screen/home_screen.dart';
 
+import '../../generated/assets.gen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -25,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("assets/images/rick-and-morty-portal-164129.png"),
+          Assets.images.rickAndMortyPortal164129.image(),
           const SizedBox(height: 20),
           const CircularProgressIndicator(),
         ],

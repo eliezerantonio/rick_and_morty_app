@@ -15,39 +15,40 @@ class DetailsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final characterProviderAsync = ref.watch(characterProvider(id));
     return Scaffold(
-        appBar: const CustomAppBar(),
-        body: switch (characterProviderAsync) {
-          AsyncData(:final value) => Column(
-              children: [
-                FadeInDown(
-                  child: Image.network(
-                    value.image,
-                    fit: BoxFit.cover,
-                    height: 300,
-                    width: double.infinity,
-                  ),
+      appBar: const CustomAppBar(),
+      body: switch (characterProviderAsync) {
+        AsyncData(:final value) => Column(
+            children: [
+              FadeInDown(
+                child: Image.network(
+                  value.image,
+                  fit: BoxFit.cover,
+                  height: 300,
+                  width: double.infinity,
                 ),
-                const SizedBox(height: 5),
-                Text(
-                  value.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-                CustomListTile(
-                  title: "Status",
-                  subtitle: value.status,
-                ),
-                CustomListTile(
-                  title: "Specie",
-                  subtitle: value.species,
-                ),
-                CustomListTile(
-                  title: "Gender",
-                  subtitle: value.gender,
-                ),
-              ],
-            ),
-          AsyncError(:final error) => Text('error: $error'),
-          _ => const Center(child: CircularProgressIndicator()),
-        });
+              ),
+              const SizedBox(height: 5),
+              Text(
+                value.name,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              CustomListTile(
+                title: "Status",
+                subtitle: value.status,
+              ),
+              CustomListTile(
+                title: "Specie",
+                subtitle: value.species,
+              ),
+              CustomListTile(
+                title: "Gender",
+                subtitle: value.gender,
+              ),
+            ],
+          ),
+        AsyncError(:final error) => Text('error: $error'),
+        _ => const Center(child: CircularProgressIndicator()),
+      },
+    );
   }
 }

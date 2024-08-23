@@ -21,3 +21,6 @@ Remember to follow the instructions to run .
     ```bash
     dart run build_runner watch
     ```
+    
+2. Instale o fvmglobalmente se ainda não tiver: `dart pub global activate fvm`
+3. Use especificado no projecto: `fvm install`

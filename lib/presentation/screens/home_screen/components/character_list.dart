@@ -32,19 +32,12 @@ class CharacterListState extends ConsumerState<CharacterList> {
     return GridView.builder(
       controller: scrollController,
       itemCount: widget.characters.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
         final character = widget.characters[index];
 
         return GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => DetailsScreen(character.id),
-            ),
-          ),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailsScreen(character.id))),
           child: Card(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),

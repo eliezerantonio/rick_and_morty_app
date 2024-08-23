@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animate_do: ^3.3.4
+
   cupertino_icons: ^1.0.6
   dio: ^5.5.0+1
   flutter:
@@ -43,7 +44,9 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  build_runner: ^2.4.11
+  flutter_gen_runner:
+  build_runner: ^2.4.12
+
   custom_lint: ^0.6.4
   flutter_lints: ^3.0.0
   flutter_test:
@@ -87,3 +90,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_gen:
+  output: lib/presentation/generated/ 
