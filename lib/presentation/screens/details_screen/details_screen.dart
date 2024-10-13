@@ -17,32 +17,58 @@ class DetailsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       body: switch (characterProviderAsync) {
-        AsyncData(:final value) => Column(
+        AsyncData(:final value) => Stack(
             children: [
-              FadeInDown(
-                child: Image.network(
-                  value.image,
-                  fit: BoxFit.cover,
-                  height: 300,
-                  width: double.infinity,
+              Column(
+                children: [
+                  FadeInDown(
+                    child: Image.network(
+                      value.image,
+                      fit: BoxFit.cover,
+                      height: 300,
+                      width: double.infinity,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    value.name,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                  CustomListTile(
+                    title: "Status",
+                    subtitle: value.status,
+                  ),
+                  CustomListTile(
+                    title: "Specie",
+                    subtitle: value.species,
+                  ),
+                  CustomListTile(
+                    title: "Gender",
+                    subtitle: value.gender,
+                  ),
+                ],
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const ClipOval(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        stops: [0.0, 0.2],
+                        colors: [
+                          Colors.transparent,
+                          Colors.black38,
+                        ],
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5),
-              Text(
-                value.name,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              CustomListTile(
-                title: "Status",
-                subtitle: value.status,
-              ),
-              CustomListTile(
-                title: "Specie",
-                subtitle: value.species,
-              ),
-              CustomListTile(
-                title: "Gender",
-                subtitle: value.gender,
               ),
             ],
           ),

@@ -52,7 +52,10 @@ class CharacterListState extends ConsumerState<CharacterList> {
                   const Spacer(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(character.name),
+                    child: Text(
+                      character.name,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
